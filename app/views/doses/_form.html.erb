@@ -1,6 +1,11 @@
-<%= form_for [@cocktail, @dose] do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+<h1>New ingredient (dose)</h1>
 
-  <%= f.submit %>
+
+<div class="dose-form">
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description, label: "specify the dose:" %>
+  <%= f.association :ingredient, collection: @ingredients %>
+
+  <%= f.button :submit, class: 'btn btn-success'%>
 <% end %>
+</div>

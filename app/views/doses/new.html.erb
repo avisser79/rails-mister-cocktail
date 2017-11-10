@@ -1,3 +1,11 @@
-<h1>New dose</h1>
+<h1>New ingredient (dose)</h1>
 
-<%= render 'form' %>
+
+<div class="dose-form">
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description, label: "specify the dose:" %>
+  <%= f.association :ingredient, collection: @ingredients %>
+
+  <%= f.button :submit, class: 'btn btn-success'%>
+<% end %>
+</div>
